@@ -1,0 +1,5 @@
+rewear_backend/.env
+rewear_backend/venv/
+rewear_backend/**/__pycache__/
+node_modules/
+.next/

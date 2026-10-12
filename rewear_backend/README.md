@@ -56,16 +56,16 @@ Create a `.env` file in the root of `rewear_backend/` (or copy `.env.example`):
 GROQ_API_KEY=your_groq_api_key_here
 HF_TOKEN=your_huggingface_token_if_required
 HF_IMAGE_MODEL=stable-diffusion-v1-5/stable-diffusion-v1-5
+PREBUILT_IMAGE_PATH=pre-built.png
 PORT=8000
 DEBUG=True
 ```
 
-`GROQ_API_KEY` is used for garment analysis. The Hugging Face model is
-downloaded and run locally on CPU for the redesign preview. `HF_TOKEN` is only
-needed if Hugging Face requests authentication for the selected model. The API
-returns the generated image as a base64 data URL in `preview_image_url`, so no
-image storage service is required for local development. CPU generation can
-take several minutes on the first request and requires substantial RAM.
+`GROQ_API_KEY` is used for garment analysis. During the current preview
+fallback, `pre-built.png` is returned as a base64 data URL in
+`preview_image_url`; the uploaded image is still sent to Groq for analysis.
+`HF_TOKEN` and `HF_IMAGE_MODEL` are retained for when local generation is
+enabled again.
 
 ### 4. Running the Server
 

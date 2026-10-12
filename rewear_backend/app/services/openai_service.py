@@ -80,6 +80,22 @@ class OpenAIService:
             base64_image,
         )
 
+    def _load_prebuilt_preview(self) -> str:
+        image_path = os.getenv(
+            "PREBUILT_IMAGE_PATH",
+            os.path.join(os.path.dirname(__file__), "..", "..", "pre-built.png"),
+        )
+        image_path = os.path.abspath(image_path)
+        if not os.path.isfile(image_path):
+            raise HTTPException(
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                detail=f"Pre-built preview image was not found: {image_path}",
+            )
+
+        with open(image_path, "rb") as image_file:
+            encoded_image = base64.b64encode(image_file.read()).decode("ascii")
+        return f"data:image/png;base64,{encoded_image}"
+
     async def analyze_and_generate_redesign(self, base64_image: str) -> dict:
         try:
             vision_response = self.client.chat.completions.create(
@@ -128,10 +144,7 @@ class OpenAIService:
 
             response_content = vision_response.choices[0].message.content
             analysis_data = json.loads(response_content)
-            analysis_data["preview_image_url"] = await self._generate_preview(
-                analysis_data["redesign_prompt"],
-                base64_image,
-            )
+            analysis_data["preview_image_url"] = self._load_prebuilt_preview()
             return analysis_data
         except json.JSONDecodeError as error:
             raise HTTPException(

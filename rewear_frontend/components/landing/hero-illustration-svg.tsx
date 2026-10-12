@@ -32,7 +32,7 @@ export function HeroIllustrationSvg({ reducedMotion, isPlaying }: HeroIllustrati
         />
         <path d="M 190 100 L 190 334" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
         <path d="M 140 160 L 170 160" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
-        
+
         {/* Subtle closed seam */}
         <path d="M 295 180 L 298 215" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" opacity={0.4} />
 

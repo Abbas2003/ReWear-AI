@@ -53,7 +53,7 @@ export function BackgroundFallback({ isStatic = false }: BackgroundFallbackProps
   );
 }
 
-const emptySubscribe = () => () => {};
+const emptySubscribe = () => () => { };
 
 function checkEligibility(): boolean {
   if (typeof window === "undefined") return false;

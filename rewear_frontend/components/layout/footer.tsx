@@ -18,8 +18,7 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col sm:items-end gap-1 text-[11px] text-[#6B6860]">
-          <span>Built for Hackathon 2026</span>
-          <span className="text-neutral-400">All rights reserved &bull; Respectful AI</span>
+          <span>&copy; 2026 ReWear</span>
         </div>
       </div>
     </footer>

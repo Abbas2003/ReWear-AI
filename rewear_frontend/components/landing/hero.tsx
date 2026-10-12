@@ -46,7 +46,7 @@ export default function Hero() {
           <div className="lg:col-span-7 flex flex-col justify-center">
             {/* Editorial Eyebrow Label */}
             <Reveal delay={0.1}>
-              <p className="text-xs font-mono uppercase tracking-[0.25em] text-[var(--color-gray,#6B6860)] mb-6 sm:mb-8">
+              <p className="inline-block w-fit text-xs font-mono uppercase tracking-[0.25em] text-white bg-black px-3 py-1.5 rounded-sm mb-6 sm:mb-8">
                 01 &mdash; Circular Garment Intelligence
               </p>
             </Reveal>

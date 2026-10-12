@@ -34,8 +34,8 @@ function WavingLattice({ scrollProgress, isTabVisible }: WavingLatticeProps) {
       typeof scrollProgress === "number"
         ? scrollProgress
         : scrollProgress && "get" in scrollProgress
-        ? scrollProgress.get()
-        : 0;
+          ? scrollProgress.get()
+          : 0;
 
     // Enhanced amplitude: visible soft folds reacting calmly to scroll and cursor
     const baseAmp = 0.52 + sp * 0.44;
